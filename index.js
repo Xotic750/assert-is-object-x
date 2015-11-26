@@ -22,7 +22,7 @@
  * alt="npm version" height="18">
  * </a>
  *
- * If IsCallable(callbackfn) is false, throw a TypeError exception.
+ * If IsObject(value) is false, throw a TypeError exception.
  * @version 1.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750

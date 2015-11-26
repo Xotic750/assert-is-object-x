@@ -22,7 +22,7 @@ alt="devDependency status" height="18"/>
 alt="npm version" height="18">
 </a>
 
-If IsCallable(callbackfn) is false, throw a TypeError exception.
+If IsObject(value) is false, throw a TypeError exception.
 
 **Version**: 1.0.0  
 **Author:** Xotic750 <Xotic750@gmail.com>  
