@@ -6,12 +6,14 @@
   es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:1,
   maxstatements:11, maxcomplexity:2 */
 
-/*global expect, module, jasmine, require, describe, it, returnExports */
+/*global expect, module, jasmine, require, describe, xit, it, returnExports */
 
 (function () {
   'use strict';
 
-  var assertIsObject;
+  var hasSymbolCtr = typeof Symbol === 'function',
+    ifSymbolCtrIt = hasSymbolCtr ? it : xit,
+    assertIsObject;
   if (typeof module === 'object' && module.exports) {
     require('es5-shim');
     assertIsObject = require('../../index.js');
@@ -32,6 +34,25 @@
         return true;
       }
       var values = [undefined, null, 1, true, ''],
+        expected = values.map(function () {
+          return true;
+        }),
+        actual = values.map(block);
+      expect(actual).toEqual(expected);
+    });
+
+    ifSymbolCtrIt('Symbols should throw a TypeError', function () {
+      function block(value) {
+        try {
+          assertIsObject(value);
+          return false;
+        } catch (e) {
+          expect(e).toEqual(jasmine.any(TypeError));
+          expect(e.message).toBe('#<Symbol> is not an object');
+        }
+        return true;
+      }
+      var values = [Symbol('mySymbol')],
         expected = values.map(function () {
           return true;
         }),

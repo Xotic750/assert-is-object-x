@@ -24,7 +24,7 @@ alt="npm version" height="18">
 
 If IsObject(value) is false, throw a TypeError exception.
 
-**Version**: 1.0.2  
+**Version**: 1.0.3  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -48,10 +48,12 @@ not. Otherwise returns the `value`.
 ```js
 var assertIsObject = require('assert-is-object-x');
 var primitive = true;
+var mySymbol = Symbol('mySymbol');
 var object = {};
 function fn () {}
 
 assertIsObject(primitive); // TypeError 'true is not an object'.
+assertIsObject(primitive); // TypeError '#<Symbol> is not an object'.
 assertIsObject(object); // Returns object.
 assertIsObject(fn); // Returns fn.
 ```
