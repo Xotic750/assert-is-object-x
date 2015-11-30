@@ -23,7 +23,7 @@
  * </a>
  *
  * If IsObject(value) is false, throw a TypeError exception.
- * @version 1.0.1
+ * @version 1.0.2
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -43,7 +43,9 @@
 ;(function () {
   'use strict';
 
-  var isPrimitive = require('is-primitive');
+  var ES = require('es-abstract/es6'),
+    isPrimitive = require('is-primitive');
+
   /**
    * Tests `value` to see if it is an object, throws a `TypeError` if it is
    * not. Otherwise returns the `value`.
@@ -61,9 +63,9 @@
    * assertIsObject(object); // Returns object.
    * assertIsObject(fn); // Returns fn.
    */
-  module.exports = function (value) {
+  module.exports = function assertIsObject(value) {
     if (isPrimitive(value)) {
-      throw new TypeError(String(value) + ' is not an object');
+      throw new TypeError(ES.ToString(value) + ' is not an object');
     }
     return value;
   };
