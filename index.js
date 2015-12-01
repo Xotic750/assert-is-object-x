@@ -57,11 +57,13 @@
    * var assertIsObject = require('assert-is-object-x');
    * var primitive = true;
    * var mySymbol = Symbol('mySymbol');
+   * var symObj = Object(mySymbol);
    * var object = {};
    * function fn () {}
    *
    * assertIsObject(primitive); // TypeError 'true is not an object'
-   * assertIsObject(primitive); // TypeError 'Symbol(mySymbol) is not an object'
+   * assertIsObject(mySymbol); // TypeError 'Symbol(mySymbol) is not an object'
+   * assertIsObject(symObj); // Returns symObj.
    * assertIsObject(object); // Returns object.
    * assertIsObject(fn); // Returns fn.
    */
