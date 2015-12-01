@@ -4,15 +4,16 @@
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
   es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:1,
-  maxstatements:11, maxcomplexity:2 */
+  maxstatements:11, maxcomplexity:3 */
 
 /*global expect, module, jasmine, require, describe, xit, it, returnExports */
 
 (function () {
   'use strict';
 
-  var hasSymbolCtr = typeof Symbol === 'function',
-    ifSymbolCtrIt = hasSymbolCtr ? it : xit,
+  var hasSymbolSupport = typeof Symbol === 'function' &&
+      typeof Symbol() === 'symbol',
+    ifSymbolSupportIt = hasSymbolSupport ? it : xit,
     assertIsObject;
   if (typeof module === 'object' && module.exports) {
     require('es5-shim');
@@ -41,23 +42,29 @@
       expect(actual).toEqual(expected);
     });
 
-    ifSymbolCtrIt('Symbols should throw a TypeError', function () {
+    ifSymbolSupportIt('Symbol literals should throw a TypeError', function () {
       function block(value) {
         try {
           assertIsObject(value);
           return false;
         } catch (e) {
           expect(e).toEqual(jasmine.any(TypeError));
-          expect(e.message).toBe('#<Symbol> is not an object');
+          expect(e.message).toBe('Symbol(mySymbol) is not an object');
         }
         return true;
       }
-      var values = [Symbol('mySymbol')],
+      var sym = Symbol('mySymbol'),
+        values = [sym],
         expected = values.map(function () {
           return true;
         }),
         actual = values.map(block);
       expect(actual).toEqual(expected);
+    });
+
+    ifSymbolSupportIt('Symbol objects should return the object', function () {
+      var sym = Object(Symbol('mySymbol'));
+      expect(assertIsObject(sym)).toEqual(sym);
     });
 
     it('should return the object', function () {

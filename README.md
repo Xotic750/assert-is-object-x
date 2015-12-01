@@ -24,7 +24,7 @@ alt="npm version" height="18">
 
 If IsObject(value) is false, throw a TypeError exception.
 
-**Version**: 1.0.3  
+**Version**: 1.0.4  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -52,8 +52,8 @@ var mySymbol = Symbol('mySymbol');
 var object = {};
 function fn () {}
 
-assertIsObject(primitive); // TypeError 'true is not an object'.
-assertIsObject(primitive); // TypeError '#<Symbol> is not an object'.
+assertIsObject(primitive); // TypeError 'true is not an object'
+assertIsObject(primitive); // TypeError 'Symbol(mySymbol) is not an object'
 assertIsObject(object); // Returns object.
 assertIsObject(fn); // Returns fn.
 ```

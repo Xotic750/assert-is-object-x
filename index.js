@@ -23,7 +23,7 @@
  * </a>
  *
  * If IsObject(value) is false, throw a TypeError exception.
- * @version 1.0.3
+ * @version 1.0.4
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -60,8 +60,8 @@
    * var object = {};
    * function fn () {}
    *
-   * assertIsObject(primitive); // TypeError 'true is not an object'.
-   * assertIsObject(primitive); // TypeError '#<Symbol> is not an object'.
+   * assertIsObject(primitive); // TypeError 'true is not an object'
+   * assertIsObject(primitive); // TypeError 'Symbol(mySymbol) is not an object'
    * assertIsObject(object); // Returns object.
    * assertIsObject(fn); // Returns fn.
    */
