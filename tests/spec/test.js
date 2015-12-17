@@ -6,7 +6,8 @@
   es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:1,
   maxstatements:11, maxcomplexity:3 */
 
-/*global expect, module, jasmine, require, describe, xit, it, returnExports */
+/*global JSON:true, expect, module, jasmine, require, describe, xit, it,
+  returnExports */
 
 (function () {
   'use strict';
@@ -17,6 +18,12 @@
     assertIsObject;
   if (typeof module === 'object' && module.exports) {
     require('es5-shim');
+    require('es5-shim/es5-sham');
+    if (typeof JSON === 'undefined') {
+      JSON = {};
+    }
+    require('json3').runInContext(null, JSON);
+    require('es6-shim');
     assertIsObject = require('../../index.js');
   } else {
     assertIsObject = returnExports;
