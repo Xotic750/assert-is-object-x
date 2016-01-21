@@ -3,8 +3,8 @@
 /*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:1,
-  maxstatements:11, maxcomplexity:3 */
+  es3:false, esnext:true, plusplus:true, maxparams:1, maxdepth:2,
+  maxstatements:11, maxcomplexity:4 */
 
 /*global JSON:true, expect, module, jasmine, require, describe, xit, it,
   returnExports */
