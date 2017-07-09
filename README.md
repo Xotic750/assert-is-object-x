@@ -1,6 +1,8 @@
 <a name="module_assert-is-object-x"></a>
 
 ## assert-is-object-x
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Xotic750/assert-is-object-x.svg)](https://greenkeeper.io/)
 <a href="https://travis-ci.org/Xotic750/assert-is-object-x"
 title="Travis status">
 <img
