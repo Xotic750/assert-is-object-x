@@ -1,6 +1,6 @@
 /**
  * @file If IsObject(value) is false, throw a TypeError exception.
- * @version 1.3.0
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -37,5 +37,6 @@ module.exports = function assertIsObject(value) {
   if (isPrimitive(value)) {
     throw new TypeError(safeToString(value) + ' is not an object');
   }
+
   return value;
 };
