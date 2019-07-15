@@ -1,6 +1,6 @@
 {
   "name": "assert-is-object-x",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "If IsObject(value) is false, throw a TypeError exception.",
   "homepage": "https://github.com/Xotic750/assert-is-object-x",
   "author": {

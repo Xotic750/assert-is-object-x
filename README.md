@@ -21,15 +21,13 @@
 <a name="module_assert-is-object-x"></a>
 
 ## assert-is-object-x
+
 If IsObject(value) is false, throw a TypeError exception.
 
-**Version**: 2.1.0  
-**Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
-**Copyright**: Xotic750  
 <a name="exp_module_assert-is-object-x--module.exports"></a>
 
 ### `module.exports(value)` ⇒ <code>\*</code> ⏏
+
 Tests `value` to see if it is an object, throws a `TypeError` if it is
 not. Otherwise returns the `value`.
 
@@ -39,19 +37,20 @@ not. Otherwise returns the `value`.
 
 - <code>TypeError</code> Throws if `value` is not an object.
 
-
-| Param | Type | Description |
-| --- | --- | --- |
+| Param | Type            | Description                |
+| ----- | --------------- | -------------------------- |
 | value | <code>\*</code> | The argument to be tested. |
 
-**Example**  
+**Example**
+
 ```js
-var assertIsObject = require('assert-is-object-x');
-var primitive = true;
-var mySymbol = Symbol('mySymbol');
-var symObj = Object(mySymbol);
-var object = {};
-function fn () {}
+import assertIsObject from 'assert-is-object-x';
+
+const primitive = true;
+const mySymbol = Symbol('mySymbol');
+const symObj = Object(mySymbol);
+const object = {};
+const fn = function fn() {};
 
 assertIsObject(primitive); // TypeError 'true is not an object'
 assertIsObject(mySymbol); // TypeError 'Symbol(mySymbol) is not an object'

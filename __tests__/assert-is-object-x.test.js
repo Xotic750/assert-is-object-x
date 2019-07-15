@@ -1,39 +1,20 @@
+import noop from 'lodash/noop';
+import assertIsObject from '../src/assert-is-object-x';
+
+/* eslint-disable-next-line compat/compat */
 const hasSymbolSupport = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolSupportIt = hasSymbolSupport ? it : xit;
-let assertIsObject;
-
-if (typeof module === 'object' && module.exports) {
-  require('es5-shim');
-  require('es5-shim/es5-sham');
-
-  if (typeof JSON === 'undefined') {
-    JSON = {};
-  }
-
-  require('json3').runInContext(null, JSON);
-  require('es6-shim');
-  const es7 = require('es7-shim');
-  Object.keys(es7).forEach(function(key) {
-    const obj = es7[key];
-
-    if (typeof obj.shim === 'function') {
-      obj.shim();
-    }
-  });
-  assertIsObject = require('../../index.js');
-} else {
-  assertIsObject = returnExports;
-}
 
 describe('assertIsObject', function() {
   it('primitives should throw a TypeError', function() {
+    expect.assertions(11);
     const block = function(value) {
       try {
         assertIsObject(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe(`${String(value)} is not an object`);
       }
 
@@ -49,19 +30,21 @@ describe('assertIsObject', function() {
   });
 
   ifSymbolSupportIt('Symbol literals should throw a TypeError', function() {
+    expect.assertions(3);
     const block = function(value) {
       try {
         assertIsObject(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe('Symbol(mySymbol) is not an object');
       }
 
       return true;
     };
 
+    /* eslint-disable-next-line compat/compat */
     const sym = Symbol('mySymbol');
     const values = [sym];
     const expected = values.map(function() {
@@ -72,20 +55,25 @@ describe('assertIsObject', function() {
   });
 
   ifSymbolSupportIt('Symbol objects should return the object', function() {
+    expect.assertions(1);
+    /* eslint-disable-next-line compat/compat */
     const sym = Object(Symbol('mySymbol'));
     expect(assertIsObject(sym)).toStrictEqual(sym);
   });
 
   it('should return the object', function() {
+    expect.assertions(1);
     const block = function(value) {
       try {
         return assertIsObject(value);
-      } catch (ignore) {}
+      } catch (ignore) {
+        // empty
+      }
 
       return false;
     };
 
-    const values = [function() {}, Array, block, assertIsObject, [], {}, /r/, new Date()];
+    const values = [noop, Array, block, assertIsObject, [], {}, /r/, new Date()];
     const expected = values.map(function(x) {
       return x;
     });
