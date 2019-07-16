@@ -1,7 +1,6 @@
 import noop from 'lodash/noop';
 import assertIsObject from '../src/assert-is-object-x';
 
-/* eslint-disable-next-line compat/compat */
 const hasSymbolSupport = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolSupportIt = hasSymbolSupport ? it : xit;
 
@@ -44,7 +43,6 @@ describe('assertIsObject', function() {
       return true;
     };
 
-    /* eslint-disable-next-line compat/compat */
     const sym = Symbol('mySymbol');
     const values = [sym];
     const expected = values.map(function() {
@@ -56,7 +54,7 @@ describe('assertIsObject', function() {
 
   ifSymbolSupportIt('Symbol objects should return the object', function() {
     expect.assertions(1);
-    /* eslint-disable-next-line compat/compat */
+
     const sym = Object(Symbol('mySymbol'));
     expect(assertIsObject(sym)).toStrictEqual(sym);
   });
