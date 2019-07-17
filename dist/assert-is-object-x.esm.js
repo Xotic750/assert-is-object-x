@@ -9,12 +9,14 @@ import isPrimitive from 'is-primitive';
  * @returns {*} Returns `value` if it is an object.
  */
 
-export default function assertIsObject(value) {
+var assertIsObject = function assertIsObject(value) {
   if (isPrimitive(value)) {
     throw new TypeError("".concat(safeToString(value), " is not an object"));
   }
 
   return value;
-}
+};
+
+export default assertIsObject;
 
 //# sourceMappingURL=assert-is-object-x.esm.js.map

@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-16T21:26:29.911Z",
+  "date": "2019-07-17T17:03:52.803Z",
   "describe": "",
   "description": "If IsObject(value) is false, throw a TypeError exception.",
   "file": "assert-is-object-x.js",
-  "hash": "0a8b207ba307a1d29516",
+  "hash": "f39d825d7707c00bfdfa",
   "license": "MIT",
-  "version": "3.0.3"
+  "version": "3.0.4"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -300,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {...*} [args] - The arguments to invoke the function with.
  * @returns {object} Returns an object of the result.
  */
-function attempt(fn) {
+var attempt = function attempt(fn) {
   try {
     for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       args[_key - 1] = arguments[_key];
@@ -318,7 +318,9 @@ function attempt(fn) {
       value: e
     };
   }
-}
+};
+
+/* harmony default export */ var attempt_x_esm = (attempt);
 
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
@@ -332,7 +334,7 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 
 
 
-var hasSymbolSupport = attempt(function () {
+var hasSymbolSupport = attempt_x_esm(function () {
   _newArrowCheck(this, _this);
 
   /* eslint-disable-next-line compat/compat */
@@ -368,9 +370,11 @@ var castString = ''.constructor;
  * @returns {string} The converted value.
  */
 
-function toStringSymbolsSupported(value) {
+var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
   return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
-}
+};
+
+/* harmony default export */ var to_string_symbols_supported_x_esm = (toStringSymbolsSupported);
 
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
@@ -378,7 +382,6 @@ var is_primitive = __webpack_require__(1);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // CONCATENATED MODULE: ./dist/assert-is-object-x.esm.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return assertIsObject; });
 
 
 /**
@@ -390,13 +393,15 @@ var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
  * @returns {*} Returns `value` if it is an object.
  */
 
-function assertIsObject(value) {
+var assert_is_object_x_esm_assertIsObject = function assertIsObject(value) {
   if (is_primitive_default()(value)) {
-    throw new TypeError("".concat(toStringSymbolsSupported(value), " is not an object"));
+    throw new TypeError("".concat(to_string_symbols_supported_x_esm(value), " is not an object"));
   }
 
   return value;
-}
+};
+
+/* harmony default export */ var assert_is_object_x_esm = __webpack_exports__["default"] = (assert_is_object_x_esm_assertIsObject);
 
 
 

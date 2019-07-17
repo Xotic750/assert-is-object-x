@@ -9,10 +9,12 @@ import isPrimitive from 'is-primitive';
  * @throws {TypeError} Throws if `value` is not an object.
  * @returns {*} Returns `value` if it is an object.
  */
-export default function assertIsObject(value) {
+const assertIsObject = function assertIsObject(value) {
   if (isPrimitive(value)) {
     throw new TypeError(`${safeToString(value)} is not an object`);
   }
 
   return value;
-}
+};
+
+export default assertIsObject;
