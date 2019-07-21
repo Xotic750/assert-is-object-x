@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-19T21:55:22.013Z",
+  "date": "2019-07-21T22:43:12.017Z",
   "describe": "",
   "description": "If IsObject(value) is false, throw a TypeError exception.",
   "file": "assert-is-object-x.js",
   "hash": "f39d825d7707c00bfdfa",
   "license": "MIT",
-  "version": "3.0.8"
+  "version": "3.0.9"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
