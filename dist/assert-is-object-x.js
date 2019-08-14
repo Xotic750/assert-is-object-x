@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-13T13:12:43.776Z",
+  "date": "2019-08-14T14:08:40.531Z",
   "describe": "",
   "description": "If IsObject(value) is false, throw a TypeError exception.",
   "file": "assert-is-object-x.js",
-  "hash": "0b88a9a1e77271ec2dc6",
+  "hash": "75ed573ae0336aa07623",
   "license": "MIT",
   "version": "3.0.18"
 }
@@ -418,13 +418,15 @@ var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
  * not. Otherwise returns the `value`.
  *
  * @param {*} value - The argument to be tested.
+ * @param {string} [message] - An alternative user message.
  * @throws {TypeError} Throws if `value` is not an object.
  * @returns {*} Returns `value` if it is an object.
  */
 
-var assert_is_object_x_esm_assertIsObject = function assertIsObject(value) {
+var assert_is_object_x_esm_assertIsObject = function assertIsObject(value, message) {
   if (is_primitive_default()(value)) {
-    throw new TypeError("".concat(to_string_symbols_supported_x_esm(value), " is not an object"));
+    var msg = arguments.length > 1 ? to_string_symbols_supported_x_esm(message) : "".concat(to_string_symbols_supported_x_esm(value), " is not an object");
+    throw new TypeError(msg);
   }
 
   return value;

@@ -61,9 +61,10 @@ not. Otherwise returns the `value`.
 
 - <code>TypeError</code> Throws if `value` is not an object.
 
-| Param | Type            | Description                |
-| ----- | --------------- | -------------------------- |
-| value | <code>\*</code> | The argument to be tested. |
+| Param     | Type                | Description                   |
+| --------- | ------------------- | ----------------------------- |
+| value     | <code>\*</code>     | The argument to be tested.    |
+| [message] | <code>string</code> | Optional alternative message. |
 
 **Example**
 
