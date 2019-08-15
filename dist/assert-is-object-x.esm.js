@@ -1,5 +1,5 @@
 import safeToString from 'to-string-symbols-supported-x';
-import isPrimitive from 'is-primitive';
+import isPrimitive from 'is-primitive-x';
 /**
  * Tests `value` to see if it is an object, throws a `TypeError` if it is
  * not. Otherwise returns the `value`.
