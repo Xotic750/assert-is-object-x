@@ -1,6 +1,6 @@
 {
   "name": "assert-is-object-x",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "If IsObject(value) is false, throw a TypeError exception.",
   "homepage": "https://github.com/Xotic750/assert-is-object-x",
   "author": {
@@ -51,8 +51,8 @@
     "url": "https://github.com/Xotic750/assert-is-object-x/issues"
   },
   "dependencies": {
-    "is-primitive-x": "^1.0.0",
-    "to-string-symbols-supported-x": "^2.1.1"
+    "is-primitive-x": "^1.0.1",
+    "to-string-symbols-supported-x": "^2.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
